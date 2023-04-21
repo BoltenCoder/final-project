@@ -43,6 +43,23 @@ export const getUserPosts = createAsyncThunk('userPosts/getAll', async (_, thunk
     }
 })
 
+// Delete user post
+export const deleteUserPost = createAsyncThunk('userPosts/delete', async (id, thunkAPI) => {
+    try {
+        // Goes into the Thunk API (Viewable with redux dev tools) and grabs the token from the user under the "auth" object.
+        const token = thunkAPI.getState().auth.user.token
+        return await userPostService.deleteUserPost(id, token)
+    } catch (error) {
+        const message =
+            (error.response &&
+                error.response.data &&
+                error.response.data.message) ||
+                error.message ||
+                error.toString()
+            return thunkAPI.rejectWithValue(message)
+    }
+})
+
 export const userPostSlice = createSlice({
     name: 'userPost',
     initialState,
@@ -74,6 +91,20 @@ export const userPostSlice = createSlice({
                 state.userPosts = action.payload
             })
             .addCase(getUserPosts.rejected, (state, action) => {
+                state.isLoading = false
+                state.isError = true
+                state.message = action.payload
+            })
+
+            .addCase(deleteUserPost.pending, (state) => {
+                state.isLoading = true
+            })
+            .addCase(deleteUserPost.fulfilled, (state, action) => {
+                state.isLoading = false
+                state.isSuccess = true
+                state.userPosts = state.userPosts.filter((userPost) => userPost._id !== action.payload.id)
+            })
+            .addCase(deleteUserPost.rejected, (state, action) => {
                 state.isLoading = false
                 state.isError = true
                 state.message = action.payload

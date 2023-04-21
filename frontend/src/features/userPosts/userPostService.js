@@ -28,9 +28,23 @@ const getUserPosts = async (token) => {
     return response.data
 }
 
+// Delete useer post
+const deleteUserPost = async (userPostId, token) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+
+    const response = await axios.delete(API_URL + userPostId, config)
+
+    return response.data
+}
+
 const userPostService = {
     createUserPost,
-    getUserPosts
+    getUserPosts,
+    deleteUserPost,
 }
 
 export default userPostService

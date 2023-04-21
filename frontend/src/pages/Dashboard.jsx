@@ -2,6 +2,7 @@ import {useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import UserPostForm from '../components/UserPostForm'
+import UserPostItem from '../components/UserPostItem'
 import Spinner from '../components/Spinner'
 import {getUserPosts, reset} from '../features/userPosts/userPostSlice'
 
@@ -25,7 +26,7 @@ function Dashboard() {
     dispatch(getUserPosts())
 
     return () => {
-      dispatch(reset())
+      dispatch(reset) // In video number 4 of the "Learn the MERN Stack" series, Traversy Media used "reset()" here instead of "reset", however reset with the "()" was causing it to crash for me.
     }
   }, [user, navigate, isError, message, dispatch])
 
@@ -42,6 +43,20 @@ function Dashboard() {
     </section>
 
     <UserPostForm />
+
+    <section className="content">
+
+      {/* (If else syntax) */}
+      {userPosts.length > 0 ? (
+        <div className="userPosts">
+          {userPosts.map((userPost) => (
+            <UserPostItem key={userPost._id} userPost={userPost} />
+          ))}
+        </div>
+      ) : (
+        <h3>You haven't posted anything yet. Is today the day?</h3>
+      )}
+    </section>
   </>
   )
 }
