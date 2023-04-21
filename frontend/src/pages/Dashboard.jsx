@@ -34,6 +34,7 @@ function Dashboard() {
     return <Spinner />
   }
 
+  console.log('DEBUG: Building dashboard.') // DEBUG
   return (
   <>
     <section className="heading">
