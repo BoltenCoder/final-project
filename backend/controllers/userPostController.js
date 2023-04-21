@@ -42,16 +42,14 @@ const updateUserPost = asyncHandler(async (req, res) => {
         throw new Error("User's post not found")
     }
 
-    const user = await User.findById(req.user.id)
-
     // Checks that a user is logged in
-    if (!user) {
+    if (!req.user) {
         res.status(401)
         throw new Error('User not found')
     }
 
     // Makes sure the user that made the post is the one that's logged in
-    if (userPost.user.toString() !== user.id) {
+    if (userPost.user.toString() !== req.user.id) {
         res.status(401)
         throw new Error('User not authorized')
     }
@@ -73,16 +71,14 @@ const deleteUserPost = asyncHandler(async (req, res) => {
         throw new Error("User's post not found")
     }
 
-    const user = await User.findById(req.user.id)
-
     // Checks that a user is logged in
-    if (!user) {
+    if (!req.user) {
         res.status(401)
         throw new Error('User not found')
     }
 
     // Makes sure the user that made the post is the one that's logged in
-    if (userPost.user.toString() !== user.id) {
+    if (userPost.user.toString() !== req.user.id) {
         res.status(401)
         throw new Error('User not authorized')
     }
