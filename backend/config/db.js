@@ -1,3 +1,4 @@
+console.log('DEBUG: Database file, ran.') // DEBUG
 const mongoose = require('mongoose')
 
 const connectDB = async () => {
