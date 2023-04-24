@@ -5,8 +5,11 @@ import Header from './components/Header'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import Spotify from './pages/Spotify'
+import UserPost from './pages/UserPost'
 
 function App() {
+
   return (
     <>
     <Router>
@@ -16,6 +19,8 @@ function App() {
         <Route path='/' element={<Dashboard />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/spotify' element={<Spotify />} />
+        <Route path='/userpost' element={<UserPost />} />
       </Routes>
     </div>
     </Router>

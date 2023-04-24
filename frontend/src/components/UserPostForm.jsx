@@ -18,10 +18,10 @@ function UserPostForm() {
     <section className='form'>
         <form onSubmit={onSubmit}>
             <div className="form-group">
-                <label htmlFor="text">Post</label>
-                <input type="text" name='text' id='text' value={text} onChange={(e) => setText(e.target.value)}/>
+                <label htmlFor="text">Title</label>
+                <input type="text" name='title' id='title' value={text} onChange={(e) => setText(e.target.value)}/>
             </div>
-            <div className="form-group">
+            <div className="form-group btn-post">
                 <button className="btn btn-block" type='submit'>
                     Share it!
                 </button>

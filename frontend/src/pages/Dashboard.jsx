@@ -39,8 +39,8 @@ function Dashboard() {
   <>
     <section className="heading">
       {/* Shows "Welcome [If there is a user logged in then (&&) display their name" */}
-      <h1>Welcome {user && user.name}</h1>
-      <p>Community Home Page</p>
+      <h1 className='top-text'>Welcome Back {user && user.name}</h1>
+      <p>Your personal dashboard</p>
     </section>
 
     <UserPostForm />
@@ -55,7 +55,7 @@ function Dashboard() {
           ))}
         </div>
       ) : (
-        <h3>You haven't posted anything yet. Is today the day?</h3>
+        <h3>You haven't shared anything yet. Is today the day?</h3>
       )}
     </section>
   </>
