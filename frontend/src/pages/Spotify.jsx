@@ -3,7 +3,8 @@ import axios from 'axios'
 
 function Spotify() {
     const CLIENT_ID = "672457edea344c8e89762c1840a2b75f"
-    const REDIRECT_URI = "http://localhost:3000/spotify"
+    // const REDIRECT_URI = "http://localhost:3000/spotify" // Uncomment when developing on local host.
+    const REDIRECT_URI = "https://finalprojectunderiley.herokuapp.com/spotify"
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
     const RESPONSE_TYPE = "token"
 
