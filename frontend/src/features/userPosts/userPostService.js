@@ -4,7 +4,6 @@ const API_URL = '/api/userPosts/'
 
 // Create new user post
 const createUserPost = async (userPostData, token) => {
-    console.log('DEBUG: Creating new post.') // DEBUG
     const config = {
         headers: {
             Authorization: `Bearer ${token}`
@@ -18,7 +17,6 @@ const createUserPost = async (userPostData, token) => {
 
 // Get all user posts
 const getUserPosts = async (token) => {
-    console.log('DEBUG: Fetching user posts.') // DEBUG
     const config = {
         headers: {
             Authorization: `Bearer ${token}`

@@ -62,7 +62,7 @@ h3 {
 .container {
   width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 50px;
   text-align: center;
 }
 
@@ -148,10 +148,11 @@ radial-gradient(rgba(255,155,55,0) 0, rgba(255,155,55,.1) 11%, rgba(255,155,55,.
 linear-gradient(45deg, #b13e12 0%, #e27412 20%, #b13e12 30%, #840b2a 40%, #b13e12 50%, #e27412 60%, #b13e12 70%, #840b2a 80%, #b13e12 90%, #e27412 100%);
 background-size: 94px 94px, 204px 204px, 82px 82px, 122px 122px, 106px 106px, 146px 146px, 100% 100%;
 background-color: #840b2a;
-  /* background-color: #f4f4f4; */
 
   border: 10px ridge rgb(225, 56, 0);
   border-radius: 18%;
+
+  max-width: 22vw;
   box-shadow: 5px 10px;
   margin: 10px 0;
   padding: 20px 5px 10px 5px;
@@ -355,17 +356,6 @@ background:linear-gradient(45deg, #ff0707, #ff920c,#ffee00);
 
 /* ------------------------------------------ */
 
-.footer{
-  margin: 0;
-  margin-left: 5%;
-  margin-top: -5vh;
-  padding: 0;
-  box-sizing: border-box;
-  border: none;
-  max-height: 4vh;
-  font-size: .5rem;
-}
-
 #footer{
   background-color: black;
   background-image:
@@ -377,4 +367,38 @@ background:linear-gradient(45deg, #ff0707, #ff920c,#ffee00);
   background-position: 0 0, 20px 30px, 65px 135px, 35px 50px;
   color: white;
   box-shadow: 0 50vh 0 50vh #000;
+}
+
+.footer{
+  padding-top: 2vh;
+  padding-bottom: 1vh;
+  box-sizing: border-box;
+  border: none;
+  max-height: 14vh;
+  display: flex;
+}
+
+.footer-section-first {
+  padding-top: 2vh;
+  margin-left: 1vw;
+  display: flex;
+  flex-direction: column;
+  width: 10vh;
+  height: 10vh;
+
+  background-image: url(./HeardBeatLogoWhite.png);
+  background-size:     cover;
+  background-repeat:   no-repeat;
+  background-position: center center;
+}
+
+.footer-section-second {
+  margin: 0;
+  padding: 0;
+  margin-left: 1vw;
+  font-size: .5rem;
+
+  display: flex;
+  flex-direction: column;
+  width: 75%;
 }

@@ -2,32 +2,32 @@ h2 {
     color: red;
 }
 
-.PostBanner {
+.postBanner {
     color: white;
 }
 
-.Title {
+.title {
     font-size: 48px;
     padding-bottom: 50px;
 }
 
-.PostSection {
+.postSection {
     display: flex;
     flex-direction: row;
     flex: 1 0 auto;
     padding-bottom: 20px;
 }
-.PostSection__left,
-.PostSection__right {
+.postSection__left,
+.postSection__right {
     display: flex;
     flex-direction: column;
     width: 50%;
 }
-.PostSection__left {
+.postSection__left {
     padding-right: 20px;
     border-right: 1px solid white;
 }
-.PostSection__right {
+.postSection__right {
     padding-left: 20px;
     border-left: 1px solid white;
 }

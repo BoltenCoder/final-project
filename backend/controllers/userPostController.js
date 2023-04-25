@@ -16,12 +16,14 @@ const getUserPosts = asyncHandler(async (req, res) => {
 // Route:               POST /api/userPost
 // Access:              Private
 const setUserPost = asyncHandler(async (req, res) => {
-    if (!req.body.text) {
+    console.log(req.body.text)
+    if (!req.body.title || !req.body.text) {
         res.status(400)
-        throw new Error('Please add a text field')
+        throw new Error('Please add a Title and Message')
     }
 
     const userPost = await UserPost.create({
+        title: req.body.title,
         text: req.body.text,
 
         // This makes posts only visible to their poster.

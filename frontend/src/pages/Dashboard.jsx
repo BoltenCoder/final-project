@@ -34,7 +34,6 @@ function Dashboard() {
     return <Spinner />
   }
 
-  console.log('DEBUG: Building dashboard.') // DEBUG
   return (
   <>
     <section className="heading">
@@ -55,7 +54,10 @@ function Dashboard() {
           ))}
         </div>
       ) : (
+        <>
+        <br />
         <h3>You haven't shared anything yet. Is today the day?</h3>
+        </>
       )}
     </section>
   </>
