@@ -62,6 +62,7 @@ const renderArtists = () => {
         <div className='container-spotify'>
             {/* When logged in. */}
             {token ?
+            <>
                 <section className='form-spotify'>
                     <form onSubmit={searchArtists}>
                         <div className="form-group-spotify">
@@ -71,10 +72,10 @@ const renderArtists = () => {
                         </div>
                     </form>
                 </section>
+                <div className='artists-spotify'>{renderArtists()}</div>
+            </>
             : <h2>If you login you can use spotify features.</h2>
             }
-
-            <div className='artists-spotify'>{renderArtists()}</div>
 
             {/* When logged out. */}
             {!token ? 

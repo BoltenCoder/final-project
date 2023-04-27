@@ -71,7 +71,7 @@ function Register() {
         <p>Begin your journey</p>
     </section>
 
-    <section className='form'>
+    <section className='form-main'>
         <form onSubmit={onSubmit}>
             <div className="form-group">
                 <input

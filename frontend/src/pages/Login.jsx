@@ -67,7 +67,7 @@ function Login() {
         <p>Who are you?</p>
     </section>
 
-    <section className='form'>
+    <section className='form-main'>
         <form onSubmit={onSubmit}>
             <div className="form-group">
                 <input
