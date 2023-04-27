@@ -55,8 +55,8 @@ function Dashboard() {
         </div>
       ) : (
         <>
-        <br />
-        <h3>You haven't shared anything yet. Is today the day?</h3>
+          <br />
+          <h3>You haven't shared anything yet. Is today the day?</h3>
         </>
       )}
     </section>

@@ -11,7 +11,7 @@ function SpecificPost(userPost) {
         <h2>Title</h2>
         {userPost.userPost.title ? (
             <h1 id="title" className="title">
-            {userPost.userPost.title}
+                {userPost.userPost.title}
             </h1>
         ) : (
             <h1>[No title given]</h1>
@@ -22,21 +22,20 @@ function SpecificPost(userPost) {
         <div className="postSection__left">
             <h2>Message</h2>
             {userPost.userPost.text ? (
-            <p>
-            {userPost.userPost.text}
-            </p>
-        ) : (
-            <p>[No text provided]</p>
-        )}
-            {console.log(userPost)}
+                <p>
+                    {userPost.userPost.text}
+                </p>
+            ) : (
+                <p>[No text provided]</p>
+            )}
         </div>
 
         <div className="postSection__right">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta consequatur ex adipisci tempore, ullam animi</p>
+            <p className='right-post-element'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta consequatur ex adipisci tempore, ullam animi</p>
             <hr />
-            <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta consequatur ex adipisci tempore, ullam animi</div>
+            <div className='right-post-element'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta consequatur ex adipisci tempore, ullam animi</div>
             <hr />
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta consequatur ex adipisci tempore, ullam animi</p>
+            <p className='right-post-element'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta consequatur ex adipisci tempore, ullam animi</p>
         </div>
     </section>
     </>

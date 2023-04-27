@@ -1,7 +1,7 @@
 import {deleteUserPost} from '../features/userPosts/userPostSlice'
 import SpecificPost from '../components/SpecificPost'
 import {useEffect} from 'react'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, useParams} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import UserPostForm from '../components/UserPostForm'
 import UserPostItem from '../components/UserPostItem'
@@ -14,10 +14,13 @@ const {postData} = require('../components/UserPostItem');
 function UserPost() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const { id } = useParams(); // Fetches ID from the url to display the specific post linked to the ID.
   
     const {user} = useSelector((state) => state.auth)
     const {userPosts, isLoading, isError, message} = useSelector((state) => state.userPosts)
+    const post = userPosts.find(post => post._id === id)
     // Here *^
+    console.log(post)
   
     useEffect(() => {
       if (isError) {
@@ -41,15 +44,12 @@ function UserPost() {
 
     // console.log('DEBUG: Creating userpost page.') // DEBUG
   return (
-    <div>
-        {userPosts.map((userPost) => (
-            // console.log(userPost._id),
-            <SpecificPost key={userPost._id} userPost={userPost} />
-          ))}
-        {/* <div>
-            {new Date(userPost.createdAt).toLocaleString('en-US')}
-        </div>
-        <h2>{userPost.text}</h2> */}
+    <div className='userpost-page'>
+      <SpecificPost userPost={post} />
+      {/* <div>
+        {new Date(userPost.createdAt).toLocaleString('en-US')}
+      </div>
+      <h2>{userPost.text}</h2> */}
     </div>
   )
 }

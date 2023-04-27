@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react'
 import axios from 'axios'
+import RenderArtist from '../components/RenderArtist'
 
 function Spotify() {
     const CLIENT_ID = "672457edea344c8e89762c1840a2b75f"
@@ -52,30 +53,34 @@ function Spotify() {
 
 const renderArtists = () => {
     return artists.map(artist => (
-        <div key={artist.id}>
-            {artist.images.length ? <img width={"10%"} src={artist.images[0].url} alt=''/> : <div>No image was available.</div>}
-            {artist.name}
-        </div>
+        <RenderArtist key={artist.id} artist={artist} />
     ))
 }
 
     return (
         <>
-            <h1>Connect to spotify</h1>
-            {!token ?
-            <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login</a>
-            : <button onClick={logout}>Logout</button>}
-
+        <div className='container-spotify'>
+            {/* When logged in. */}
             {token ?
-                <form onSubmit={searchArtists}>
-                    <input type='text' onChange={e => setSearchKey(e.target.value)}/>
-                    <button type='submit'>Search</button>
-                </form>
+                <section className='form-spotify'>
+                    <form onSubmit={searchArtists}>
+                        <div className="form-group-spotify">
+                            <label htmlFor="artist">Artist</label>
+                            <input type='text' name='artist' id='artist' className='form-content-spotify' onChange={e => setSearchKey(e.target.value)}/>
+                            <button type='submit' className='btn'>Search</button>
+                        </div>
+                    </form>
+                </section>
             : <h2>If you login you can use spotify features.</h2>
             }
 
-            {renderArtists()}
+            <div className='artists-spotify'>{renderArtists()}</div>
 
+            {/* When logged out. */}
+            {!token ? 
+                <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login</a>
+            : <button className='btn btn-logout-spotify' onClick={logout}>Logout of Spotify</button>}
+        </div>
         </>
     )
 }

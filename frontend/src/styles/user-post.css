@@ -2,6 +2,16 @@ h2 {
     color: red;
 }
 
+.right-post-element {
+    margin-bottom: auto;
+}
+
+.userpost-page {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+}
+
 .postBanner {
     color: white;
 }

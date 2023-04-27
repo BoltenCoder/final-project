@@ -30,7 +30,7 @@ function Header() {
         <ul>
             {user ? (
                 <li>
-                    <button className='btn btn-logout' onClick={onLogout}>
+                    <button className='btn btn-logout-main' onClick={onLogout}>
                         <FaSignOutAlt /> Logout
                     </button>
                 </li>
